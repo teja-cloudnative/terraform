@@ -29,3 +29,7 @@ output "new" {
 output "cli" {
   value = var.cli
 }
+
+output "shell" {
+  value = var.shell
+}

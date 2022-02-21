@@ -38,3 +38,6 @@ variable "new" { }
 
 #Varibale from CLI
 variable "cli" { }
+
+#Variable from Shell
+variable "shell" {}
