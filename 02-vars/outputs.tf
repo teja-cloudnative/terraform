@@ -15,9 +15,9 @@ output "map_sting" {
 }
 
 output "map_number" {
-  value = var.map[number]
+  value = var.map["number"]
 }
 
 output "map_boolean" {
-  value = var.map[boolean]
+  value = var.map["boolean"]
 }
