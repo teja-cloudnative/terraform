@@ -9,3 +9,15 @@ output "list1" {
 output "list2" {
   value = var.list[1]
 }
+
+output "map_sting" {
+  value = var.map["string"]
+}
+
+output "map_number" {
+  value = var.map[number]
+}
+
+output "map_boolean" {
+  value = var.map[boolean]
+}

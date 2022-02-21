@@ -23,3 +23,12 @@ variable "sample3" {
 variable "list" {
   default = ["Hello World", 90, true]
 }
+# List can have values of different data types
+
+variable "map" {
+  default = {
+    string = "Hello World",
+    number = 99,
+    boolean = true
+  }
+}
