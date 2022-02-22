@@ -30,7 +30,7 @@ resource "aws_ec2_tag" "ec2_monitor_tag" {
   value       = var.MONITOR
 }
 
-resource"null_resource" "ansible-apply"{
+resource  "null_resource" "ansible-apply"{
   triggers = {
     abc = timestamp()
   }
