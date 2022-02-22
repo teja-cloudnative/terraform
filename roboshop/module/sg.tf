@@ -1,4 +1,4 @@
-resource "aws_security_group" "allow_tls" {
+resource "aws_security_group" "allow_app" {
   name        = "allow_${var.COMPONENT}"
   description = "Allow inbound for ${var.COMPONENT} component"
 
