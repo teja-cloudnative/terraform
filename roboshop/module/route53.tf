@@ -1,5 +1,5 @@
 resource "aws_route53_record" "www" {
-  zone_id = aZ10117842M4YD5HYCTC5K
+  zone_id = "aZ10117842M4YD5HYCTC5K"
   name    = "${var.COMPONENT}-dev"
   type    = "A"
   ttl     = "300"
