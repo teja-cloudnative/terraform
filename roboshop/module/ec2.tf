@@ -8,7 +8,7 @@
 #}
 
 resource "aws_spot_instance_request" "cheap_worker" {
-  ami                    = "ami-0fe118ae150a71466"
+  ami                    = "ami-067ce86d1f553a611"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_app.id]
   wait_for_fulfillment   = true
