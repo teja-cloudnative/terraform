@@ -13,12 +13,18 @@ variable "COMP" {
   ]
 }
 
-resource "null_resource" "null" {
-  for_each = var.COMP
-  triggers = {
-    abc    = timestamp()
-  }
-  provisioner "local-exec" {
-    command = "Component Name = ${each.value["name"]}"
-  }
+#resource "null_resource" "null" {
+#  for_each = var.COMP
+#  triggers = {
+#    abc    = timestamp()
+#  }
+#  provisioner "local-exec" {
+#    command = "Component Name = ${each.value["name"]}"
+#  }
+#}
+
+module "sample" {
+  count = length(var.COMP)
+  source = "./module"
+  comp = element(var.COMP, count.index )
 }
