@@ -33,6 +33,7 @@ resource "aws_ec2_tag" "ec2-monitor-tag" {
 }
 
 resource "null_resource" "ansible-apply" {
+  depends_on = [aws_route53_record.www]
   triggers = {
     abc = timestamp()
   }

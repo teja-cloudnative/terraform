@@ -30,8 +30,9 @@
 #}
 
 module "roboshop" {
+  count     = length(var.COMPONENTS)
   source    = "./module"
-  COMPONENT = var.COMPONENTS
-  PORT      = var.PORTS
-  MONITOR   = var.MONITOR
+  COMPONENT = var.COMPONENTS[count.index]
+  PORT      = var.PORTS[count.index]
+  MONITOR   = var.MONITOR[count.index]
 }
