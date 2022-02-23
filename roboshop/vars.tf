@@ -1,4 +1,4 @@
-variable "COMPONENTS" {
+variable "COMPONENT" {
   default = ["cart", "catalogue", "frontend", "mongodb", "mysql", "payment", "rabbitmq", "redis", "shipping", "user"]
 }
 
@@ -23,14 +23,4 @@ variable "COMP" {
       monitor = "yes"
     }
   ]
-}
-
-resource "null_resource" "null" {
-  for_each = var.COMP
-  triggers = {
-    abc    = timestamp()
-  }
-  provisioner "local-exec" {
-    command = "Component Name = ${each.value["name"]}"
-  }
 }

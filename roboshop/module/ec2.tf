@@ -15,7 +15,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
   wait_for_fulfillment   = true
 
   tags = {
-    Name = var.COMPONENT
+    Name = var.COMPONENT["name"]
   }
 
 }
@@ -23,13 +23,13 @@ resource "aws_spot_instance_request" "cheap_worker" {
 resource "aws_ec2_tag" "ec2-name-tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "Name"
-  value       = var.COMPONENT
+  value       = var.COMPONENT["name"]
 }
 
 resource "aws_ec2_tag" "ec2-monitor-tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "Monitor"
-  value       = var.MONITOR
+  value       = var.COMPONENT["monitor"]
 }
 
 resource "null_resource" "ansible-apply" {
@@ -44,7 +44,7 @@ resource "null_resource" "ansible-apply" {
       password = "DevOps321"
     }
     inline = [
-      "ansible-pull -U https://github.com/raghudevopsb62/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=dev"
+      "ansible-pull -U https://github.com/raghudevopsb62/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT["name"]} -e ENV=dev"
     ]
   }
 }
