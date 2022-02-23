@@ -3,5 +3,5 @@ variable "list" {
 }
 
 output "number_of_list" {
-  value = max(var.list)
+  value = length(var.list)
 }
