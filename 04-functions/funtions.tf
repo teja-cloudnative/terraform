@@ -5,3 +5,7 @@ variable "list" {
 output "number_of_list" {
   value = length(var.list)
 }
+
+output "get_first_value" {
+  value = var.list[0]
+}
