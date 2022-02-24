@@ -8,7 +8,7 @@
 //  }
 //}
 
-resource "aws_spot_instance_request" "cheap_worker" {
+`resource "aws_spot_instance_request" "cheap_worker" {
   ami                    = "ami-067ce86d1f553a611"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_app.id]
@@ -18,7 +18,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
     Name = var.COMPONENT["name"]
   }
 
-}
+}`
 
 resource "aws_ec2_tag" "ec2-name-tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
